@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PeopleHub | Employee Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a href="#dashboard" class="brand">
+            <span class="brand-icon">P</span>
+
+            <span>
+                <strong>PeopleHub</strong>
+                <small>HR Management</small>
+            </span>
+        </a>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <a href="#dashboard" class="nav-link active">
+                <span class="nav-icon">▦</span>
+                Dashboard
+            </a>
+
+            <a href="#employees" class="nav-link">
+                <span class="nav-icon">♙</span>
+                Employees
+            </a>
+
+            <a href="#employeeFormSection" class="nav-link">
+                <span class="nav-icon">＋</span>
+                Add Employee
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help-icon">?</div>
+
+            <div>
+                <strong>Employee Portal</strong>
+                <p>Manage your team easily.</p>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="dashboard">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="breadcrumb">Workspace / Dashboard</p>
+                <h1>Employee Dashboard</h1>
+            </div>
+
+            <button type="button" id="refreshBtn" class="refresh-btn">
+                ↻ &nbsp; Refresh
+            </button>
+
+        </header>
+
+
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner">
+
+            <div>
+                <p class="welcome-label">HUMAN RESOURCES</p>
+
+                <h2>Welcome to PeopleHub 👋</h2>
+
+                <p>
+                    Manage your employees, organize your team,
+                    and keep everything in one place.
+                </p>
+
+                <a href="#employees" class="banner-link">
+                    View employees &nbsp; →
+                </a>
+            </div>
+
+            <div class="banner-decoration">
+                <div class="banner-circle circle-one"></div>
+                <div class="banner-circle circle-two"></div>
+                <div class="banner-emoji">👥</div>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-icon purple-icon">♙</span>
+                    <span class="stat-tag">TEAM</span>
+                </div>
+
+                <p class="stat-label">Total Employees</p>
+
+                <h2 id="totalEmployees">0</h2>
+
+                <p class="stat-description">
+                    Employees in your organization
+                </p>
+            </article>
+
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-icon blue-icon">▦</span>
+                    <span class="stat-tag">ORGANIZATION</span>
+                </div>
+
+                <p class="stat-label">Departments</p>
+
+                <h2 id="totalDepartments">0</h2>
+
+                <p class="stat-description">
+                    Departments represented
+                </p>
+            </article>
+
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-icon green-icon">₹</span>
+                    <span class="stat-tag">PAYROLL</span>
+                </div>
+
+                <p class="stat-label">Average Salary</p>
+
+                <h2 id="averageSalary">₹0</h2>
+
+                <p class="stat-description">
+                    Average salary per employee
+                </p>
+            </article>
+
+        </section>
+
+
+        <!-- EMPLOYEE FORM -->
+        <section class="content-card" id="employeeFormSection">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2 id="formTitle">Add New Employee</h2>
+
+                    <p>
+                        Enter employee information below.
+                    </p>
+                </div>
+
+                <span class="section-icon">＋</span>
+
+            </div>
+
+
+            <form id="employeeForm">
+
+                <input type="hidden" id="employeeId">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter employee name"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="employee@example.com"
+                            maxlength="254"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="department">Department</label>
+
+                        <input
+                            type="text"
+                            id="department"
+                            name="department"
+                            placeholder="e.g. Engineering"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="salary">Monthly Salary (₹)</label>
+
+                        <input
+                            type="number"
+                            id="salary"
+                            name="salary"
+                            placeholder="Enter salary"
+                            min="0.01"
+                            max="99999999.99"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        id="submitBtn"
+                        class="primary-btn"
+                    >
+                        + Add Employee
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="cancel-btn hidden"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- EMPLOYEE DIRECTORY -->
+        <section class="content-card" id="employees">
+
+            <div class="employee-heading">
+
+                <div>
+                    <h2>Employee Directory</h2>
+
+                    <p>
+                        View and manage your organization’s employees.
+                    </p>
+                </div>
+
+                <span class="directory-count">
+                    <span id="directoryCount">0</span> employees
+                </span>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTER -->
+            <div class="toolbar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search by name, email or department..."
+                    >
+                </div>
+
+                <select id="departmentFilter" aria-label="Filter by department">
+                    <option value="">All Departments</option>
+                </select>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>EMPLOYEE</th>
+                            <th>EMAIL ADDRESS</th>
+                            <th>DEPARTMENT</th>
+                            <th>MONTHLY SALARY</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="employeeTableBody">
+
+                        <tr>
+                            <td colspan="5" class="loading-cell">
+                                Loading employees...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="table-footer">
+                <p>
+                    Showing <strong id="visibleEmployees">0</strong>
+                    employees
+                </p>
+
+                <span>PeopleHub Employee Management</span>
+            </div>
+
+        </section>
+
+
+        <footer class="page-footer">
+            <p>© 2026 PeopleHub · Employee Management System</p>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST NOTIFICATION -->
+<div id="message" class="toast hidden" role="status" aria-live="polite"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
