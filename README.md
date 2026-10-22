@@ -139,18 +139,3 @@ http://127.0.0.1:8000/docs
 ```
 
 This opens the interactive Swagger UI for testing the API endpoints.
-
-## Security Notes
-
-* Database credentials are stored in a local `.env` file.
-* The `.env` file is excluded from Git using `.gitignore`.
-* The `.env.example` file contains placeholders, not real credentials.
-* Never commit passwords, API keys, or other secrets to a public repository.
-
-## Future Improvements
-
-* Employee authentication and authorization
-* Pagination for employee records
-* Improved input validation
-* Automated tests
-* Deployment to a hosting platform
